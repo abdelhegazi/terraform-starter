@@ -1,7 +1,0 @@
-# ----------------------------------------------------------------
-# GENERATED FROM envoy tfvars
-# ----------------------------------------------------------------
-tf_prov_dc1_aws_access_key         = "{{Credential "AWS_CORE#awsAccessKeyId"}}"
-tf_prov_dc1_aws_secret_key         = "{{Credential "AWS_CORE#awsSecretAccessKey"}}"
-tf_prov_dc1_aws_region             = "eu-west-1"
-tf_prov_dc1_credentials_ref        = "AWS_CORE"

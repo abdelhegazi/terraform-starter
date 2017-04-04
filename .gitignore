@@ -1,5 +1,6 @@
 *.tfvars
 override.tf
+provider.tf
 **/.terraform
 vault-token
 .bundle
