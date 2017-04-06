@@ -16,3 +16,6 @@ BTW, these are proven working for AZURE provisioning on (MAC, Linux), I don't th
  ARM_SUBSCRIPTION_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
  ARM_TENANT_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
+export AWS_ACCESS_KEY_ID=XXX
+export AWS_SECRET_ACCESS_KEY=XXX
+export AWS_DEFAULT_REGION=XXX          <- Make sure you set this one too!
