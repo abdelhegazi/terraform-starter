@@ -8,11 +8,11 @@ I personally use Environmental variables for azure, AWS
 
 bear in mind these are the names of the env variable when using azure, this is defined in my ~/.bashrc
 
-BTW, these are proven working for AZURE provisioning on (MAC, Linux), I don't think that I am a windows user
+BTW, these are proven working for AZURE provisioning on (MAC, Linux), I don't think that I am a windows user, export these following  env vars and you are set
 
-export ARM_CLIENT_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-export ARM_CLIENT_NAME="XXXXXXXXXXXXXXXXXXXXXX"
-export ARM_CLIENT_SECRET="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX="
-export ARM_SUBSCRIPTION_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-export ARM_TENANT_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+ ARM_CLIENT_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+ ARM_CLIENT_NAME="XXXXXXXXXXXXXXXXXXXXXX"
+ ARM_CLIENT_SECRET="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX="
+ ARM_SUBSCRIPTION_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ ARM_TENANT_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
