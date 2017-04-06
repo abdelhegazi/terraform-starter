@@ -1,3 +1,0 @@
-Hello: ${hello}
-World: ${world}
-Addition: ${1+2+3}
