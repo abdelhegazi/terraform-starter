@@ -8,3 +8,6 @@ vault-token
 *.iml
 **/tmp
 *.tfstat
+terraform.tfstate
+terraform.tfstate.backup
+TempCommands.PS1
