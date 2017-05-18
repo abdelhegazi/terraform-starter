@@ -12,7 +12,7 @@ resource "azurerm_network_security_group" "abdelSG1-test" {
 
 resource "azurerm_network_security_rule" "SG1-outbound1" {
   name                        = "test-allow-outbound-rule"
-  priority                    = 110
+  priority                    = 100
   direction                   = "Outbound"
   access                      = "Allow"
   protocol                    = "TCP"
@@ -25,8 +25,8 @@ resource "azurerm_network_security_rule" "SG1-outbound1" {
 }
 
 resource "azurerm_network_security_rule" "sshRule" {
-  name                        = "test-allow-Inbound-rule"
-  priority                    = 111
+  name                        = "SSH"
+  priority                    = 101
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "TCP"
@@ -38,28 +38,71 @@ resource "azurerm_network_security_rule" "sshRule" {
   network_security_group_name = "${azurerm_network_security_group.abdelSG1-test.name}"
 }
 
-resource "azurerm_network_security_rule" "httpRule" {
-  name                        = "HTTP"
-  priority                    = 120
+#resource "azurerm_network_security_rule" "httpRule" {
+#  name                        = "HTTP"
+#  priority                    = 102
+#  direction                   = "Inbound"
+#  access                      = "Allow"
+#  protocol                    = "Tcp"
+#  source_port_range           = "*"
+#  destination_port_range      = "80"
+#  source_address_prefix       = "*"
+#  destination_address_prefix  = "*"
+#  resource_group_name         = "${azurerm_resource_group.abdelRG1-test.name}"
+#  network_security_group_name = "${azurerm_network_security_group.abdelSG1-test.name}"
+#}
+
+resource "azurerm_network_security_rule" "httpsRule" {
+  name                        = "HTTPS"
+  priority                    = 104
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
   source_port_range           = "*"
-  destination_port_range      = "80"
+  destination_port_range      = "443"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name         = "${azurerm_resource_group.abdelRG1-test.name}"
   network_security_group_name = "${azurerm_network_security_group.abdelSG1-test.name}"
 }
 
-resource "azurerm_network_security_rule" "httpsRule" {
+resource "azurerm_network_security_rule" "httpsRule2" {
   name                        = "HTTPS"
-  priority                    = 130
+  priority                    = 105
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
   source_port_range           = "*"
-  destination_port_range      = "443"
+  destination_port_range      = "8080"
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+  resource_group_name         = "${azurerm_resource_group.abdelRG1-test.name}"
+  network_security_group_name = "${azurerm_network_security_group.abdelSG1-test.name}"
+}
+
+resource "azurerm_network_security_rule" "consulServer" {
+  name                        = "HTTPS"
+  priority                    = 106
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "8500"
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+  resource_group_name         = "${azurerm_resource_group.abdelRG1-test.name}"
+  network_security_group_name = "${azurerm_network_security_group.abdelSG1-test.name}"
+}
+
+
+resource "azurerm_network_security_rule" "denyRule" {
+  name                        = "deny-everything-else"
+  priority                    = 1000
+  direction                   = "Inbound"
+  access                      = "Deny"
+  protocol                    = "*"
+  source_port_range           = "*"
+  destination_port_range      = "*"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name         = "${azurerm_resource_group.abdelRG1-test.name}"
