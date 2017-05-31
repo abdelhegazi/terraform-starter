@@ -9,6 +9,7 @@ resource "azurerm_container_service" "test" {
   resource_group_name    = "${azurerm_resource_group.test.name}"
   orchestration_platform = "Kubernetes"
 
+# Azure APIs currently only suuports 1,3 or 5  as number of master nodes
   master_profile {
     count      = 1
     dns_prefix = "testockubecsmaster"
@@ -18,19 +19,21 @@ resource "azurerm_container_service" "test" {
     admin_username = "ahegazi"
 
     ssh_key {
-      key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDhVRQ8H7gVU2NutvtgpdcFTYmzi0/omGDY2tm2nkKq35BKNj94MEg7RJ6PJcWWFUz7HtzksnWNqEeYnWl6WJEthQ9Vvhu/x5ZloNEwzvzF4lOSchio+9oahekvGs0HwPYQt7JYRbLRc72WlOEEW1FIxXitfUZFmQ8vQ2QH5XxL+ctsf+Ln8LQ5HHz8/WZwA+oCOs/j57UOBd+9rwhLqjjCrp0iLLycYeoqbBVeJzi/o+xMLnrIlnfOYMyKJSMv7jk6xbGAsjV19BAOmdp8+x+APVnYpNJ/KT4VJU+BfDmno7JwdPSmqx5Ty01OSQOYr6QirTHc3+7OQZMOkh/hQCq/ ahegazi@abdel-oc"
+      key_data = "${var.ssh-key}"
     }
   }
 
   agent_pool_profile {
     name       = "default"
-    count      = 1
+    count      = 2
     dns_prefix = "testockubecsagent"
     vm_size    = "Standard_A0"
   }
 
+# This is a bug with terraform (9.3) it doesn't pickup these secrets from defined environment variables
+# you have to pass them 
   service_principal {
-    client_id     = "${var.clinet_id}"
+    client_id     = "${var.client_id}"
     client_secret = "${var.client_secret}" 
   }
 
