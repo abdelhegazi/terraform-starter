@@ -1,5 +1,5 @@
 variable "ssh-key" {
-  default = "ssh-rsa XXXXXXXXXXXXXXXxc"
+  default = "ssh-rsa XXXXXXXXXXXXXXX"
 }
 
 variable "client_id" {
