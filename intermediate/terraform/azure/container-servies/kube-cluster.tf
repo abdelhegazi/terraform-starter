@@ -16,7 +16,7 @@ resource "azurerm_container_service" "test" {
   }
 
   linux_profile {
-    admin_username = "ahegazi"
+    admin_username = "${var.admin-username}"
 
     ssh_key {
       key_data = "${var.ssh-key}"
