@@ -9,3 +9,7 @@ variable "client_id" {
 variable "client_secret" {
   default = "XXXXXXX=="
 }
+
+variable "admin-username" {
+  default = "ahegazi"
+}
